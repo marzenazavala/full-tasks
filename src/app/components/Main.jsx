@@ -5,6 +5,7 @@ import Dashboard from './Dashboard';
 import { Router, Route } from 'react-router-dom';
 import { history } from '../store/history';
 import Navigation from './Navigation';
+import TaskDetails from './TaskDetails';
 
 const Main = () => (
   <Router history={history}>
@@ -12,6 +13,7 @@ const Main = () => (
     <div>
       <Navigation />
       <Route exact path="/dashboard" component={Dashboard}/>
+      <Route exact path="/task/:id" render={({match})=><TaskDetails match={match}/>}/>
     </div>
   </Provider>
   </Router>

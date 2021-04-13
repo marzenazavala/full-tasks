@@ -23,7 +23,7 @@ export const defaultState = {
         {
             name:"Done",
             id: "G3",
-            owner: "U1",
+            owner: "U2",
         },
     ],
     tasks: [
@@ -32,35 +32,35 @@ export const defaultState = {
             id: "T1",
             group: "G1",
             owner: "U1",
-            isCompleted: false
+            isComplete: false
         },
         {
             name:"Call Ana",
             id: "T1",
             group: "G1",
             owner: "U1",
-            isCompleted: false
+            isComplete: false
         },
         {
             name:"Do math",
             id: "T2",
             group: "G3",
             owner: "U2",
-            isCompleted: true
+            isComplete: true
         },
         {
             name:"Do gym",
             id: "T3",
             group: "G2",
             owner: "U1",
-            isCompleted: false
+            isComplete: false
         },
         {
             name:"Set meeting with Elisabeth",
             id: "T3",
             group: "G2",
             owner: "U1",
-            isCompleted: false
+            isComplete: false
         }
     ],
     comments: [{
