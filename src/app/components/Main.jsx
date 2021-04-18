@@ -2,21 +2,30 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../store'
 import Dashboard from './Dashboard';
-import { Router, Route } from 'react-router-dom';
-import { history } from '../store/history';
+import { Route, Redirect } from 'react-router-dom';
 import Navigation from './Navigation';
 import TaskDetails from './TaskDetails';
+import Login from './Login';
+
+
+const RouteGuards = Component => ({match}) => {
+  console.info("Route guard", match)
+  if(!store.getState().session.authenticated){
+    return <Redirect to="/" />
+  } {
+    return <Component match={match}/>
+  } 
+}
 
 const Main = () => (
-  <Router history={history}>
   <Provider store={store}>
     <div>
       <Navigation />
-      <Route exact path="/dashboard" component={Dashboard}/>
-      <Route exact path="/task/:id" render={({match})=><TaskDetails match={match}/>}/>
+      <Route exact path="/" component={Login} />
+      <Route exact path="/dashboard" render={RouteGuards(Dashboard)}/>
+      <Route exact path="/task/:id" render={RouteGuards(TaskDetails)}/>
     </div>
   </Provider>
-  </Router>
 )
 
 
